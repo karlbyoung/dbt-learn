@@ -3,4 +3,4 @@ select
     ,paymentmethod as payment_method
     ,amount/100.0 as amount
     ,status
-  from raw.stripe.payment
+  from {{ source('stripe','payment')}}
