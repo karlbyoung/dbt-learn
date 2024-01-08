@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: dim_calendar
+    description: A table with each date from 2001 to 2050, with indication of holidays, weekends, and business days
+    columns:
+      - name: RAW_DATE
+        description: a calendar date, primary key for dim_calendar
+        tests:
+          - unique
+          - not_null
+      - name: ROW_NUMBER
+        description: row number within the table (date order), an integer starting at 1
+        tests:
+          - unique
+          - not_null
+      - name: DAY_OF_WEEK
+        description: day of the week (number) for RAW_DATE (0=Sunday, 1=Monday, etc.), an integer from 0 to 6
+      - name: DAY_NAME
+        description: day of the week (string) for RAW_DATE ('Sun','Mon','Tue',etc.), a 3-letter string
+      - name: HOLIDAY
+        description: holiday name for this RAW_DATE if it is a holiday, else NULL
+      - name: IS_WEEKEND
+        description: TRUE when the RAW_DATE is on a weekend (Sat or Sun), else FALSE
+      - name: IS_HOLIDAY
+        description: TRUE when the RAW_DATE is an observed holiday, else FALSE
+      - name: IS_BUSINESS_DAY
+        description: TRUE when the RAW_DATE is a business day, i.e., not IS_WEEKEND and not IS_HOLIDAY, else FALSE
+
+      
+
+        
+
