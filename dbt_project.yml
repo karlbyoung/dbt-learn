@@ -38,7 +38,18 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   jaffle_shop:
     marts:
+      +database: DAC
       core:
+        +schema: DMT_CORE
         +materialized: table
+      sales:
+        +schema: DMT_SALES
+        +materialized: table
+    proc:
+      +database: PRC
+      orders:
+        +schema: PRP_ORDERS
     staging:
+      +database: RAW
+      +schema: SRC
       +materialized: view
