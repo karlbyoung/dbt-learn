@@ -8,3 +8,7 @@ with source_data as
 )
 
 select * from source_data
+
+{% set my_var = 'my string' %}
+
+{{ env_var('DBT_TEST') }}
